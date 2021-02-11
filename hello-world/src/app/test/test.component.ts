@@ -5,10 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `<h1>
               Welcome {{name}}
             </h1>
-            <input type="text" value="arafat">
-            <input [id]="myId" type="text" value="arafat">
-            <input [disabled]="isDisabled" [id]="myId" type="text" value="arafat">
-            
+           <input [(ngModel)]="name" type="text">
+           {{name}}
             `,
   styles: [`
   div{
@@ -18,9 +16,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  public name = "Arafat1";
-  public myId="testId";
-  public isDisabled=false;
+  public name = "";
+  
   public siteUrl=window.location.href;
   constructor() { }
 
@@ -29,5 +26,9 @@ export class TestComponent implements OnInit {
 
   greeetUSer(){
     return "Hello" + this.name;
+  }
+  onClick(event)
+  {
+    console.log(event)
   }
 }
